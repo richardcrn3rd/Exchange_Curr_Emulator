@@ -26,14 +26,13 @@ class Currency:
       
   def __add__(self, other):
     """
-      Hello
       Defines the '+' operator.
       If other is a Currency object the currency values 
       are added and the result will be the unit of 
       self. If other is an int or a float, other will
       be treated as a USD value. 
     """
-    if type(other) == int or type(other) == float:
+    if isinstance(other, (int, float)):
       x = (other * Currency.currencies[self.unit])
     else:
       x = (other.value / Currency.currencies[other.unit] * Currency.currencies[self.unit]) 
@@ -60,7 +59,7 @@ class Currency:
       self. If other is an int or a float, other will
       be treated as a USD value. 
     """
-    if type(other) == int or type(other) == float:
+    if isinstance(other, (int, float)):
       x = (other * Currency.currencies[self.unit])
     else:
       x = (other.value / Currency.currencies[other.unit] * Currency.currencies[self.unit]) 
@@ -80,7 +79,7 @@ class Currency:
       res.changeTo("USD")
     return res
 
-v1 = Currency(23.43, "EUR")
+v1 = Currency(20.00, "EUR")
 v2 = Currency(19.97, "USD")
 print(v1 + v2)
 print(v2 + v1)
