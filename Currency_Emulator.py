@@ -5,17 +5,17 @@ class Currency:
                  'GBP': 0.737414, #british pound
                  'JPY': 111.019919, #japanese yen
                  'EUR': 0.862361, #euro
-                 'USD': 1.0} #us dollar
+                 'USD': 2.0} #us dollar
       
   def __init__(self, value, unit="USD"):
     self.value = value
     self.unit = unit
 
   def __str__(self):
-    return f"{round(self.value,2)} {self.unit}"
+    return f"{round(self.value,3)} {self.unit}"
 
   def __repr__(self):
-    return f"{round(self.value,2)} {self.unit}"
+    return f"{round(self.value,3)} {self.unit}"
 
   def changeTo(self, new_unit):
     """
@@ -81,8 +81,9 @@ class Currency:
 
 v1 = Currency(20.00, "EUR")
 v2 = Currency(19.97, "USD")
-print(v1 + v2)
-print(v2 + v1)
+v3 = Currency(19.97, "JPY")
+print(v1)
+print(v2 + v1 + v3)
 print(v1 + 3) # an int or a float is considered to be a USD value
 print(3 + v1)
 print(v1 - 3) # an int or a float is considered to be a USD value
